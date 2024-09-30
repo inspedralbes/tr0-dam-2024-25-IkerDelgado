@@ -1,20 +1,23 @@
 <template>
-  <div id="app">
-    <h1>Gestió de Preguntes</h1>
+  <body>
+     <div id="app">
+    <h1><b>Gestió de Preguntes</b></h1>
 
     <!-- Listar preguntas -->
     <div v-if="preguntes.length">
       <h2>Preguntes</h2>
       <ul>
-        <li v-for="pregunta in preguntes" :key="pregunta.id">
+        <li v-for="pregunta in preguntes" :key="pregunta.id" class="question-item">
           <strong>{{ pregunta.pregunta }}</strong>
-          <img :src="pregunta.imatge" alt="Imatge de la pregunta" width="100">
-          <p><strong>Respostes:</strong></p>
+          <br>
+          <img :src="pregunta.imatge" alt="Imatge de la pregunta" class="question-image"> <!-- Imagen debajo de la pregunta -->
           <ul>
             <li v-for="(resposta, index) in pregunta.respostes" :key="index">{{ resposta }}</li>
           </ul>
-          <button @click="deletePregunta(pregunta.id)">Eliminar</button>
-          <button @click="editPregunta(pregunta)">Editar</button>
+          <div class="question-actions">
+            <button @click="deletePregunta(pregunta.id)">Eliminar</button>
+            <button @click="editPregunta(pregunta)">Editar</button>
+          </div>
         </li>
       </ul>
     </div>
@@ -48,6 +51,7 @@
       </form>
     </div>
   </div>
+  </body>
 </template>
 
 <script>
@@ -147,11 +151,18 @@ export default {
 <style scoped>
 #app {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 20px;
+  height: 100vh;
 }
 
 h1, h2 {
   color: #333;
+  font-weight: bold; /* Negrita para títulos */
 }
 
 ul {
@@ -159,24 +170,45 @@ ul {
   padding: 0;
 }
 
+.question-image {
+  width: 240px; 
+  height: 240px; 
+  object-fit: cover; 
+  border-radius: 8px;
+}
+
 li {
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
+  font-weight: bold; /* Negrita para el contenido de las preguntas */
+}
+
+.correct-answer {
+  color: green; /* Color verde para la respuesta correcta */
 }
 
 button {
   margin-right: 10px;
   padding: 5px 10px;
-  background-color: #4CAF50;
+  background-color: #4CAF50; /* Color por defecto */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s; /* Transición suave */
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #45a049; /* Efecto hover para botón por defecto */
+}
+
+button.delete {
+  background-color: #f44336; /* Color rojo para el botón de eliminar */
+}
+
+button.delete:hover {
+  background-color: #d32f2f; /* Efecto hover para el botón de eliminar */
 }
 
 form div {
@@ -184,7 +216,7 @@ form div {
 }
 
 label {
-  font-weight: bold;
+  font-weight: bold; /* Negrita para etiquetas */
 }
 
 input[type="text"],
@@ -197,18 +229,10 @@ input[type="number"] {
 }
 
 button[type="submit"] {
-  background-color: #008CBA;
+  background-color: #008CBA; /* Color para botón de enviar */
 }
 
 button[type="submit"]:hover {
-  background-color: #007BB5;
-}
-
-button[type="button"] {
-  background-color: #f44336;
-}
-
-button[type="button"]:hover {
-  background-color: #d32f2f;
+  background-color: #007BB5; /* Efecto hover para botón de enviar */
 }
 </style>

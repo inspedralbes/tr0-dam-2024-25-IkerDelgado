@@ -1,11 +1,13 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');  // Importar el módulo 'path' para manejar rutas
+const cors = require('cors');  // Importar cors
 
 const app = express();
 const PORT = 3000;
 
 // Middleware
+app.use(cors());  // Habilitar CORS para todas las rutas
 app.use(express.json());  // Para parsear JSON
 
 // Ruta para obtener todas las preguntas
