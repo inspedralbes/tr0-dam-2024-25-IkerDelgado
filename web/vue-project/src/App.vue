@@ -68,7 +68,7 @@ export default {
       newPreguntaRespostes: '',
       isEditing: false,
       editPreguntaId: null,
-      maxRespostes: 0 // Para controlar el índice de respuesta correcta
+      maxRespostes: 0 
     };
   },
   mounted() {

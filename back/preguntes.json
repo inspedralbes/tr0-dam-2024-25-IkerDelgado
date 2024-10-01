@@ -1,18 +1,6 @@
 {
   "preguntes": [
     {
-      "id": 1,
-      "pregunta": "Què significa aquest senyal de trànsit triangular amb fons blanc i un cotxe?",
-      "respostes": [
-        "Zona escolar",
-        "Carretera relliscosa",
-        "Pas de vianants",
-        "Obres en la via"
-      ],
-      "resposta_correcta": 1,
-      "imatge": "https://image.spreadshirtmedia.net/image-server/v1/products/T1459A839PA4459PT28D158780035W10000H8863/views/1,width=550,height=550,appearanceId=839,backgroundColor=F2F2F2/senal-de-trafico-licencia-de-conducir-carretera-resbaladiza-pegatina.jpg"
-    },
-    {
       "id": 2,
       "pregunta": "Què indica una línia contínua en el centre de la carretera?",
       "respostes": [
@@ -227,18 +215,6 @@
       ],
       "resposta_correcta": 2,
       "imatge": "https://motor.elpais.com/wp-content/uploads/2023/07/lineas-discontinuas-seguridad-vial-4.jpg"
-    },
-    {
-      "id": 20,
-      "pregunta": "Què significa un senyal rectangular de color blau amb una lletra P?",
-      "respostes": [
-        "Zona de descans",
-        "Zona d'aparcament",
-        "Prohibició d'estacionar",
-        "Zona de càrrega i descàrrega"
-      ],
-      "resposta_correcta": 1,
-      "imatge": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPu_RY3AOeWDYyu81cZUXKAPWULGbX3kbhYg&s"
     }
   ]
 }

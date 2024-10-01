@@ -24,7 +24,7 @@ app.get('/api/preguntes', function(req, res) {
 
 // Ruta para obtener una pregunta por ID
 app.get('/api/preguntes/:id', function(req, res) {
-    const id = parseInt(req.params.id);
+    const id = parseInt(req.params.id); // Pilla la id que puso el cliente
     const filePath = path.join(__dirname, 'preguntes.json');
     fs.readFile(filePath, 'utf8', function(err, data) {
         if (err) {
@@ -70,23 +70,18 @@ app.put('/api/preguntes/:id', function(req, res) {
     const id = parseInt(req.params.id);
     const updatedPregunta = req.body;
     const filePath = path.join(__dirname, 'preguntes.json');
+
     fs.readFile(filePath, 'utf8', function(err, data) {
-        if (err) {
-            console.error(err);
-            return res.status(500).send({ message: 'Error al leer el archivo' });
-        }
+        if (err) return res.status(500).send({ message: 'Error al leer el archivo' });
+
         const json = JSON.parse(data);
-        const index = json.preguntes.findIndex(function(p) {
-            return p.id === id;
-        });
-        if (index !== -1) {
-            json.preguntes[index] = Object.assign({}, json.preguntes[index], updatedPregunta);
+        const pregunta = json.preguntes.find(p => p.id === id);
+
+        if (pregunta) {
+            Object.assign(pregunta, updatedPregunta); // Actualiza los valores de la pregunta
             fs.writeFile(filePath, JSON.stringify(json, null, 2), function(err) {
-                if (err) {
-                    console.error(err);
-                    return res.status(500).send({ message: 'Error al guardar la pregunta actualizada' });
-                }
-                res.send(json.preguntes[index]);
+                if (err) return res.status(500).send({ message: 'Error al guardar la pregunta actualizada' });
+                res.send(pregunta); // Responde con la pregunta actualizada
             });
         } else {
             res.status(404).send({ message: 'Pregunta no encontrada' });
@@ -98,23 +93,18 @@ app.put('/api/preguntes/:id', function(req, res) {
 app.delete('/api/preguntes/:id', function(req, res) {
     const id = parseInt(req.params.id);
     const filePath = path.join(__dirname, 'preguntes.json');
+
     fs.readFile(filePath, 'utf8', function(err, data) {
-        if (err) {
-            console.error(err);
-            return res.status(500).send({ message: 'Error al leer el archivo' });
-        }
+        if (err) return res.status(500).send({ message: 'Error al leer el archivo' });
+
         const json = JSON.parse(data);
-        const index = json.preguntes.findIndex(function(p) {
-            return p.id === id;
-        });
+        const index = json.preguntes.findIndex(p => p.id === id);
+
         if (index !== -1) {
-            json.preguntes.splice(index, 1);
+            json.preguntes.splice(index, 1); // Elimina la pregunta
             fs.writeFile(filePath, JSON.stringify(json, null, 2), function(err) {
-                if (err) {
-                    console.error(err);
-                    return res.status(500).send({ message: 'Error al guardar la pregunta eliminada' });
-                }
-                res.send({ message: 'Pregunta eliminada' });
+                if (err) return res.status(500).send({ message: 'Error al guardar el archivo' });
+                res.send({ message: 'Pregunta eliminada' }); // Responde con éxito
             });
         } else {
             res.status(404).send({ message: 'Pregunta no encontrada' });
