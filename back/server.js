@@ -45,7 +45,7 @@ app.get('/api/preguntes/:id', function(req, res) {
 
 // Ruta para agregar una nueva pregunta
 app.post('/api/preguntes', function(req, res) {
-    const newPregunta = req.body;
+    let newPregunta = req.body;
     const filePath = path.join(__dirname, 'preguntes.json');
     fs.readFile(filePath, 'utf8', function(err, data) {
         if (err) {
@@ -53,13 +53,24 @@ app.post('/api/preguntes', function(req, res) {
             return res.status(500).send({ message: 'Error al leer el archivo' });
         }
         const json = JSON.parse(data);
-        newPregunta.id = json.preguntes.length + 1;  // Asignar un nuevo ID
+        const newId = json.preguntes.length + 1;
+
+        // Hacemos esto para que el id aparezca al principio del .json
+        newPregunta = {
+            id: newId,
+            pregunta: newPregunta.pregunta,
+            respostes: newPregunta.respostes,
+            resposta_correcta: newPregunta.resposta_correcta,
+            imatge: newPregunta.imatge
+        };
+
         json.preguntes.push(newPregunta);
         fs.writeFile(filePath, JSON.stringify(json, null, 2), function(err) {
             if (err) {
                 console.error(err);
                 return res.status(500).send({ message: 'Error al guardar la pregunta' });
             }
+            console.log('Pregunta añadida correctamente:', newPregunta);
             res.status(201).send(newPregunta);
         });
     });
