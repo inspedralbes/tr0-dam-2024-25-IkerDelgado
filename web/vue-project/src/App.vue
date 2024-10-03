@@ -6,6 +6,7 @@
     <!-- Listar preguntas -->
     <div v-if="preguntes.length">
       <h2>Preguntes</h2>
+      <button @click="obtenerMensaje()">Ver estadisticas</button>
       <ul>
         <li v-for="pregunta in preguntes" :key="pregunta.id" class="question-item">
           <strong>{{ pregunta.pregunta }}</strong>
@@ -15,8 +16,8 @@
             <li v-for="(resposta, index) in pregunta.respostes" :key="index">{{ resposta }}</li>
           </ul>
           <div class="question-actions">
+            <button onclick="location.href='#editarl'" @click="editPregunta(pregunta)">Editar</button>
             <button @click="deletePregunta(pregunta.id)">Eliminar</button>
-            <button @click="editPregunta(pregunta)">Editar</button>
           </div>
         </li>
       </ul>
@@ -28,7 +29,7 @@
 
     <!-- Agregar/Editar pregunta -->
     <div>
-      <h2>{{ isEditing ? 'Editar Pregunta' : 'Nova Pregunta' }}</h2>
+      <h2 id="editarl">{{ isEditing ? 'Editar Pregunta' : 'Nova Pregunta' }}</h2>
       <form @submit.prevent="submitForm">
         <div>
           <label>Pregunta:</label>
@@ -99,6 +100,19 @@ export default {
         alert('No es va poder eliminar la pregunta.'); // Mensaje de error al usuario
       }
     },
+    async obtenerMensaje() {
+      try {
+        const response = await fetch('http://localhost:3000/api/hola');  // Ajusta la URL según tu servidor
+        if (!response.ok) {
+          throw new Error('Error al obtener el mensaje');
+        }
+        const data = await response.json();
+        alert(data.message);  // Muestra un alert con el mensaje obtenido del servidor
+      } catch (error) {
+        console.error('Error al hacer fetch:', error);
+        alert('Hubo un problema al obtener el mensaje');  // Muestra un alert si hay un error
+      }
+    },
     editPregunta(pregunta) {
       this.isEditing = true;
       this.newPregunta = { ...pregunta };
@@ -156,8 +170,7 @@ export default {
   align-items: center;
   justify-content: flex-start;
   margin: 0;
-  padding: 20px;
-  height: 100vh;
+  padding: 20px
 }
 
 h1, h2 {
