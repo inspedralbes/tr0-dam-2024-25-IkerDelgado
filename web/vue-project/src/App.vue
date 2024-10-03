@@ -164,88 +164,65 @@ export default {
 
 <style scoped>
 #app {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   margin: 0;
-  padding: 20px
+  padding: 20px;
+  background-color: #f4f4f9;
+  min-height: 100vh;
 }
 
 h1, h2 {
-  color: #333;
-  font-weight: bold; /* Negrita para títulos */
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.question-image {
-  width: 240px; 
-  height: 240px; 
-  object-fit: cover; 
-  border-radius: 8px;
-}
-
-li {
+  color: #2c3e50;
+  font-weight: bold;
   margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-  font-weight: bold; /* Negrita para el contenido de las preguntas */
+  text-align: center;
+  border-bottom: 3px solid #3498db;
 }
 
-.correct-answer {
-  color: green; /* Color verde para la respuesta correcta */
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.8rem; }
+
+ul { list-style: none; padding: 0; }
+
+.question-item {
+  background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.question-item:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); }
+
+.question-image { width: 100%; height: auto; max-width: 300px; border-radius: 10px; margin-top: 10px; }
+
+.question-actions { display: flex; justify-content: space-between; margin-top: 10px; }
 
 button {
-  margin-right: 10px;
-  padding: 5px 10px;
-  background-color: #4CAF50; /* Color por defecto */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s; /* Transición suave */
+  padding: 10px 20px; border: none; border-radius: 50px; cursor: pointer; font-size: 1rem;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-button:hover {
-  background-color: #45a049; /* Efecto hover para botón por defecto */
+button { background: #3498db; color: #fff; }
+button:hover { background: #2980b9; transform: translateY(-2px); }
+
+button.delete { background: #e74c3c; }
+button.delete:hover { background: #c0392b; }
+
+form div { margin-bottom: 15px; }
+label { font-weight: bold; color: #2c3e50; font-size: 1.1rem; }
+
+input[type="text"], input[type="number"] {
+  padding: 10px; width: 100%; border: 1px solid #ccc; border-radius: 10px; font-size: 1rem;
 }
 
-button.delete {
-  background-color: #f44336; /* Color rojo para el botón de eliminar */
-}
+button[type="submit"] { background: #1abc9c; }
+button[type="submit"]:hover { background: #16a085; }
 
-button.delete:hover {
-  background-color: #d32f2f; /* Efecto hover para el botón de eliminar */
-}
+button[type="button"] { background: #f39c12; }
+button[type="button"]:hover { background: #e67e22; }
 
-form div {
-  margin-bottom: 10px;
-}
-
-label {
-  font-weight: bold; /* Negrita para etiquetas */
-}
-
-input[type="text"],
-input[type="number"] {
-  padding: 5px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button[type="submit"] {
-  background-color: #008CBA; /* Color para botón de enviar */
-}
-
-button[type="submit"]:hover {
-  background-color: #007BB5; /* Efecto hover para botón de enviar */
-}
+p { color: #7f8c8d; font-size: 1.2rem; }
+#editarl { margin-top: 50px; border-bottom: 2px solid #1abc9c; padding-bottom: 10px; }
 </style>
