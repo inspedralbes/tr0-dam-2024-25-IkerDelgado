@@ -3,10 +3,9 @@
     <div id="app">
       <h1><b>Gestió de Preguntes</b></h1>
 
-      <!-- Botón fijo para crear una nueva pregunta -->
       <button class="create-button" @click="scrollToForm">Crear Pregunta</button> 
 
-      <!-- Listar preguntas -->
+      <!-- Lista de preguntas -->
       <div v-if="preguntes.length">
         <h2>Preguntes</h2>
         <button @click="obtenerMensaje()">Ver estadisticas</button>
@@ -227,7 +226,7 @@ button.edit:hover { background: darkorange; }
 button.delete { background: red; color: white; }  /* Botón de Eliminar en rojo */
 button.delete:hover { background: darkred; }
 
-button.create-button {
+button.create-button { /* Botón de Crear Pregunta en fijo */
   position: fixed;
   bottom: 20px;
   right: 20px;
