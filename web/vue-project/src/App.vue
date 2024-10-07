@@ -1,64 +1,66 @@
 <template>
   <body>
-     <div id="app">
-    <h1><b>Gestió de Preguntes</b></h1>
+    <div id="app">
+      <h1><b>Gestió de Preguntes</b></h1>
 
-    <!-- Listar preguntas -->
-    <div v-if="preguntes.length">
-      <h2>Preguntes</h2>
-      <button @click="obtenerMensaje()">Ver estadisticas</button>
-      <ul>
-        <li v-for="pregunta in preguntes" :key="pregunta.id" class="question-item">
-          <strong>{{ pregunta.pregunta }}</strong>
-          <br>
-          <img :src="pregunta.imatge" alt="Imatge de la pregunta" class="question-image"> <!-- Imagen debajo de la pregunta -->
-          <ul>
-            <li v-for="(resposta, index) in pregunta.respostes" 
-                :key="index" 
-                :class="{ 'correct-answer': index === pregunta.resposta_correcta }"> <!-- Agrega la clase condicional -->
-              {{ resposta }}
-            </li>
-          </ul>
-          <div class="question-actions">
-            <button onclick="location.href='#editarl'" class="edit" @click="editPregunta(pregunta)">Editar</button>
-            <button class="delete" @click="deletePregunta(pregunta.id)">Eliminar</button>
+      <!-- Botón fijo para crear una nueva pregunta -->
+      <button class="create-button" @click="scrollToForm">Crear Pregunta</button> 
+
+      <!-- Listar preguntas -->
+      <div v-if="preguntes.length">
+        <h2>Preguntes</h2>
+        <button @click="obtenerMensaje()">Ver estadisticas</button>
+        <ul>
+          <li v-for="pregunta in preguntes" :key="pregunta.id" class="question-item">
+            <strong>{{ pregunta.pregunta }}</strong>
+            <br>
+            <img :src="pregunta.imatge" alt="Imatge de la pregunta" class="question-image">
+            <ul>
+              <li v-for="(resposta, index) in pregunta.respostes" 
+                  :key="index" 
+                  :class="{ 'correct-answer': index === pregunta.resposta_correcta }">
+                {{ resposta }}
+              </li>
+            </ul>
+            <div class="question-actions">
+              <button onclick="location.href='#editarl'" class="edit" @click="editPregunta(pregunta)">Editar</button>
+              <button class="delete" @click="deletePregunta(pregunta.id)">Eliminar</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div v-else>
+        <p>No hi ha preguntes disponibles.</p>
+      </div>
+
+      <!-- Agregar/Editar pregunta -->
+      <div>
+        <h2 id="editarl">{{ isEditing ? 'Editar Pregunta' : 'Nova Pregunta' }}</h2>
+        <form @submit.prevent="submitForm">
+          <div>
+            <label>Pregunta:</label>
+            <input type="text" v-model="newPregunta.pregunta" required>
           </div>
-        </li>
-      </ul>
+          <div>
+            <label>Respostes (separades per comes):</label>
+            <input type="text" v-model="newPreguntaRespostes" required>
+          </div>
+          <div>
+            <label>Resposta Correcta (índex):</label>
+            <input type="number" v-model="newPregunta.resposta_correcta" min="0" :max="maxRespostes" required>
+          </div>
+          <div>
+            <label>Imatge (URL):</label>
+            <input type="text" v-model="newPregunta.imatge" required>
+          </div>
+          <button type="submit">{{ isEditing ? 'Guardar Canvis' : 'Afegir Pregunta' }}</button>
+          <button @click="cancelEdit" v-if="isEditing" type="button">Cancelar</button>
+        </form>
+      </div>
     </div>
-
-    <div v-else>
-      <p>No hi ha preguntes disponibles.</p>
-    </div>
-
-    <!-- Agregar/Editar pregunta -->
-    <div>
-      <h2 id="editarl">{{ isEditing ? 'Editar Pregunta' : 'Nova Pregunta' }}</h2>
-      <form @submit.prevent="submitForm">
-        <div>
-          <label>Pregunta:</label>
-          <input type="text" v-model="newPregunta.pregunta" required>
-        </div>
-        <div>
-          <label>Respostes (separades per comes):</label>
-          <input type="text" v-model="newPreguntaRespostes" required>
-        </div>
-        <div>
-          <label>Resposta Correcta (índex):</label>
-          <input type="number" v-model="newPregunta.resposta_correcta" min="0" :max="maxRespostes" required>
-        </div>
-        <div>
-          <label>Imatge (URL):</label>
-          <input type="text" v-model="newPregunta.imatge" required>
-        </div>
-        <button type="submit">{{ isEditing ? 'Guardar Canvis' : 'Afegir Pregunta' }}</button>
-        <button @click="cancelEdit" v-if="isEditing" type="button">Cancelar</button>
-      </form>
-    </div>
-  </div>
   </body>
 </template>
-
 
 <script>
 export default {
@@ -162,6 +164,12 @@ export default {
       this.newPreguntaRespostes = '';
       this.isEditing = false;
       this.editPreguntaId = null;
+    },
+    scrollToForm() {
+      const element = document.getElementById('editarl');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }
 };
@@ -219,6 +227,26 @@ button.edit:hover { background: darkorange; }
 button.delete { background: red; color: white; }  /* Botón de Eliminar en rojo */
 button.delete:hover { background: darkred; }
 
+button.create-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #ff7300;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button.create-button:hover {
+  background-color: #cc5f06;
+  transform: translateY(-2px);
+}
+
 form div { margin-bottom: 15px; }
 label { font-weight: bold; color: #2c3e50; font-size: 1.1rem; }
 
@@ -226,11 +254,11 @@ input[type="text"], input[type="number"] {
   padding: 10px; width: 100%; border: 1px solid #ccc; border-radius: 10px; font-size: 1rem;
 }
 
-button[type="submit"] { background: #1abc9c; }
-button[type="submit"]:hover { background: #16a085; }
+button[type="submit"] { background: #ff7300; }
+button[type="submit"]:hover { background: #c25903; }
 
 button[type="button"] { background: #f39c12; }
-button[type="button"]:hover { background: #e67e22; }
+button[type="button"]:hover { background: #c96107; }
 
 p { color: #7f8c8d; font-size: 1.2rem; }
 #editarl { margin-top: 50px; border-bottom: 2px solid #282d30; padding-bottom: 10px; }
