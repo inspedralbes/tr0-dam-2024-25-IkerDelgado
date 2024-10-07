@@ -13,11 +13,15 @@
           <br>
           <img :src="pregunta.imatge" alt="Imatge de la pregunta" class="question-image"> <!-- Imagen debajo de la pregunta -->
           <ul>
-            <li v-for="(resposta, index) in pregunta.respostes" :key="index">{{ resposta }}</li>
+            <li v-for="(resposta, index) in pregunta.respostes" 
+                :key="index" 
+                :class="{ 'correct-answer': index === pregunta.resposta_correcta }"> <!-- Agrega la clase condicional -->
+              {{ resposta }}
+            </li>
           </ul>
           <div class="question-actions">
-            <button onclick="location.href='#editarl'" @click="editPregunta(pregunta)">Editar</button>
-            <button @click="deletePregunta(pregunta.id)">Eliminar</button>
+            <button onclick="location.href='#editarl'" class="edit" @click="editPregunta(pregunta)">Editar</button>
+            <button class="delete" @click="deletePregunta(pregunta.id)">Eliminar</button>
           </div>
         </li>
       </ul>
@@ -54,6 +58,7 @@
   </div>
   </body>
 </template>
+
 
 <script>
 export default {
@@ -180,7 +185,7 @@ h1, h2 {
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
-  border-bottom: 3px solid #3498db;
+  border-bottom: 3px solid #282d30;
 }
 
 h1 { font-size: 2.5rem; }
@@ -193,9 +198,11 @@ ul { list-style: none; padding: 0; }
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.question-item:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); }
+.question-item:hover { box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); }
 
 .question-image { width: 100%; height: auto; max-width: 300px; border-radius: 10px; margin-top: 10px; }
+
+.correct-answer { color: green; font-weight: bold; }  /* Resalta la respuesta correcta */
 
 .question-actions { display: flex; justify-content: space-between; margin-top: 10px; }
 
@@ -204,11 +211,13 @@ button {
   transition: background-color 0.3s, transform 0.3s;
 }
 
-button { background: #3498db; color: #fff; }
-button:hover { background: #2980b9; transform: translateY(-2px); }
+button:hover { transform: translateY(-2px); }
 
-button.delete { background: #e74c3c; }
-button.delete:hover { background: #c0392b; }
+button.edit { background: orange; color: white; }  /* Botón de Editar en naranja */
+button.edit:hover { background: darkorange; }
+
+button.delete { background: red; color: white; }  /* Botón de Eliminar en rojo */
+button.delete:hover { background: darkred; }
 
 form div { margin-bottom: 15px; }
 label { font-weight: bold; color: #2c3e50; font-size: 1.1rem; }
@@ -224,5 +233,5 @@ button[type="button"] { background: #f39c12; }
 button[type="button"]:hover { background: #e67e22; }
 
 p { color: #7f8c8d; font-size: 1.2rem; }
-#editarl { margin-top: 50px; border-bottom: 2px solid #1abc9c; padding-bottom: 10px; }
+#editarl { margin-top: 50px; border-bottom: 2px solid #282d30; padding-bottom: 10px; }
 </style>
