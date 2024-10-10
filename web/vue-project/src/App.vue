@@ -112,8 +112,6 @@ export default {
         if (!response.ok) {
           throw new Error('Error al obtener el mensaje');
         }
-        const data = await response.json();
-        alert(data.message);  // Muestra un alert con el mensaje obtenido del servidor
       } catch (error) {
         console.error('Error al hacer fetch:', error);
         alert('Hubo un problema al obtener el mensaje');  // Muestra un alert si hay un error
