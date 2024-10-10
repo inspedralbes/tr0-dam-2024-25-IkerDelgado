@@ -149,9 +149,24 @@ app.get('/api/estadisticas', function(req, res) {
         console.error('Error en el proceso de Python:', errorMessage);
         res.status(500).json({ error: errorMessage });
     });
+  });
+  app.post('/api/estadisticas', function(req, res) {
+    const estadisticas = req.body; // Aquí obtienes el JSON enviado desde el cliente
+    console.log(estadisticas);  // Muestra las estadísticas recibidas en la consola
+
+    // Ruta del archivo JSON donde se guardarán las estadísticas
+    const filePath = path.join(__dirname, 'estadisticas.json');
+
+    // Guardar las estadísticas en el archivo
+    fs.writeFile(filePath, JSON.stringify(estadisticas, null, 2), function(err) {
+        if (err) {
+            console.error(err);
+            return res.status(500).send({ message: 'Error al guardar las estadísticas' });
+        }
+        console.log('Estadísticas guardadas correctamente:', estadisticas);
+        res.status(200).send({ message: 'Estadísticas guardadas exitosamente' });
+    });
 });
-
-
 app.listen(PORT, function() {
-    console.log('Servidor corriendo en http://192.168.1.38:' + PORT);
-});
+    console.log('Servidor corriendo en http://192.168.0.160:' + PORT);
+}); 
