@@ -122,17 +122,19 @@ app.delete('/api/preguntes/:id', function(req, res) {
         }
     });
 });
-app.get('/api/hola', function(req, res) {
+app.get('/api/estadisticas', function(req, res) {
     const { spawn } = require('child_process');
-  
-    console.log("Inicio del proceso");
-  
-    const pythonProcess = spawn('python', ['./server.py', 'text', '4']);
+
+    console.log("Inicio del proceso de estadisticas");
+
+    const pythonProcess = spawn('py', ['./server.py']); // Usa 'py' si tienes el lanzador Py en Windows, o 'python3' en otros SO
+
     let pythonOutput = '';
     pythonProcess.stdout.on('data', (data) => {
-        pythonOutput += data.toString();  
+        pythonOutput += data.toString();
         console.log('[Mensaje recibido desde Python:] ', pythonOutput.trim(), "  [end message]");
     });
+
     pythonProcess.on('close', (code) => {
         console.log(`El proceso de Python se cerró con el código ${code}`);
         if (code === 0) {
@@ -141,12 +143,14 @@ app.get('/api/hola', function(req, res) {
             res.status(500).json({ error: 'El script de Python no se ejecutó correctamente.' });
         }
     });
+
     pythonProcess.stderr.on('data', (data) => {
         const errorMessage = data.toString().trim();
         console.error('Error en el proceso de Python:', errorMessage);
-        res.status(500).json({ error: errorMessage }); // Enviar el error al cliente
+        res.status(500).json({ error: errorMessage });
     });
-  });
+});
+
 
 app.listen(PORT, function() {
     console.log('Servidor corriendo en http://192.168.1.38:' + PORT);

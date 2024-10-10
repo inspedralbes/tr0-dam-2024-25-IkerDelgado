@@ -1,12 +1,12 @@
 {
-    "preguntas": {
-        "pregunta_1": {
-          "aciertos": 0,
-          "fallos": 0
-        },
-        "pregunta_2": {
-          "aciertos": 0,
-          "fallos": 0
-        }
+  "preguntas": {
+      "pregunta_1": {
+          "correctas": 1,
+          "incorrectas": 1
+      },
+      "pregunta_2": {
+          "correctas": 2,
+          "incorrectas": 3
       }
+  }
 }
