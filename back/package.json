@@ -1,0 +1,16 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "Aquesta carpeta ha de contenir tot el necessari per al desplegament i la configuració de l'entorn tant de producció com de desenvolupament.\r Típicament:\r  -  SQL DDL\r  -  SQL DML\r  -  Plugins o confguracions del editors o les eines\r  -  altres dades d'interés\r  -  dockers per aixecar entorns de prova..\r  -  ...",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  }
+}

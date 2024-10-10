@@ -1,0 +1,12 @@
+{
+  "preguntas": {
+      "pregunta_1": {
+          "correctas": 1,
+          "incorrectas": 1
+      },
+      "pregunta_2": {
+          "correctas": 2,
+          "incorrectas": 3
+      }
+  }
+}

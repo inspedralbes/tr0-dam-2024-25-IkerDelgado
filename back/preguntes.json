@@ -1,0 +1,244 @@
+{
+  "preguntes": [
+    {
+      "id": 1,
+      "pregunta": "Què significa aquest senyal de trànsit triangular amb fons blanc i un cotxe?",
+      "respostes": [
+        "Zona escolar",
+        "Carretera relliscosa",
+        "Pas de vianants",
+        "Obres en la via"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://image.spreadshirtmedia.net/image-server/v1/products/T1459A839PA4459PT28D158780035W10000H8863/views/1,width=550,height=550,appearanceId=839,backgroundColor=F2F2F2/senal-de-trafico-licencia-de-conducir-carretera-resbaladiza-pegatina.jpg"
+    },
+    {
+      "id": 2,
+      "pregunta": "Què indica una línia contínua en el centre de la carretera?",
+      "respostes": [
+        "Està permès avançar",
+        "No està permès avançar",
+        "Zona d'aparcament",
+        "Carril exclusiu per a autobusos"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://autoescuelabasurto.com/wp-content/uploads/2019/12/pexels-photo-229014-1024x682.jpeg"
+    },
+    {
+      "id": 3,
+      "pregunta": "A quina velocitat màxima pots circular en una carretera convencional fora de ciutat?",
+      "respostes": [
+        "60 km/h",
+        "80 km/h",
+        "90 km/h",
+        "100 km/h"
+      ],
+      "resposta_correcta": 2,
+      "imatge": "https://www.emesa-m30.es/wp-content/uploads/2021/11/que-es-una-carretera-convencional.jpg"
+    },
+    {
+      "id": 4,
+      "pregunta": "Quina distància mínima de seguretat has de mantenir en condicions normals?",
+      "respostes": [
+        "30 metres",
+        "50 metres",
+        "70 metres",
+        "100 metres"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://lh6.googleusercontent.com/proxy/AL-wX9BzPr0O8ks38VVHNrlrucqSYdjNGBVfTJOAsj7HLzZeWpVZWrMR6DMxlPudto4c7FRoE6o6fA7hZCvz7VbR3yzirQF00tUtSWiaxf0Ce7C7QLmuK-tuVqtpKnrLMA0"
+    },
+    {
+      "id": 5,
+      "pregunta": "Què indica el senyal de prohibició amb un cotxe en vermell?",
+      "respostes": [
+        "Prohibit l'accés a vehicles motoritzats",
+        "Prohibit avançar",
+        "Zona de vianants",
+        "Prohibit aparcar"
+      ],
+      "resposta_correcta": 0,
+      "imatge": "https://senalescuberos.es/375-large_default/senal-entrada-prohibida-a-vehiculos-de-motor-excepto-motociclos-de-dos-ruedas-sin-sidecar.jpg"
+    },
+    {
+      "id": 6,
+      "pregunta": "Com has d'actuar en una intersecció amb un semàfor en groc intermitent?",
+      "respostes": [
+        "Aturar el vehicle",
+        "Passar amb precaució",
+        "Accelerar per creuar ràpid",
+        "Esperar el semàfor verd"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDohkLchveHJF5HM2NNLyHqahw1xfbVuy_ZA&s"
+    },
+    {
+      "id": 7,
+      "pregunta": "Quin tipus de vehicles tenen prioritat en una rotonda?",
+      "respostes": [
+        "Els que entren a la rotonda",
+        "Els que ja circulen per la rotonda",
+        "Els vehicles pesants",
+        "Els vehicles d'emergència"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Kreisverkehr_in_Bayern_Aerial_fg182.jpg/1200px-Kreisverkehr_in_Bayern_Aerial_fg182.jpg"
+    },
+    {
+      "id": 8,
+      "pregunta": "Què significa un senyal de prohibició amb un número dins (per exemple, 50)?",
+      "respostes": [
+        "Velocitat màxima permesa",
+        "Distància mínima de seguretat",
+        "Zona amb soroll limitat",
+        "Carril exclusiu per a autobusos"
+      ],
+      "resposta_correcta": 0,
+      "imatge": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ46lyYnjN1GCkCJq3L9vp0DqOCAOPvkbQIGw&s"
+    },
+    {
+      "id": 9,
+      "pregunta": "Com afecta el consum d'alcohol en la conducció?",
+      "respostes": [
+        "Millora la capacitat de reacció",
+        "Redueix el temps de reacció",
+        "No afecta la conducció",
+        "Millora la concentració"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://antidopingmexico.com/wp-content/uploads/2018/07/alcohol.png"
+    },
+    {
+      "id": 10,
+      "pregunta": "En quin cas és obligatori utilitzar les llums d'encreuament durant el dia?",
+      "respostes": [
+        "En túnels",
+        "En autopistes",
+        "En zones amb bona il·luminació",
+        "En carreteres urbanes"
+      ],
+      "resposta_correcta": 0,
+      "imatge": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO7NSQgu4Z4qZCDQPyk3ySOEVVnSPB01W71Q&s"
+    },
+    {
+      "id": 11,
+      "pregunta": "Quin és el límit d'alcohol permès en sang per a conductors novells?",
+      "respostes": [
+        "0,5 g/l",
+        "0,3 g/l",
+        "0,0 g/l",
+        "1,0 g/l"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://easygasgroup.com/wp-content/uploads/2023/02/alcoholimetro-1024x685.jpg"
+    },
+    {
+      "id": 12,
+      "pregunta": "Com has d'actuar en presència d'un senyal de stop?",
+      "respostes": [
+        "Reduir la velocitat i passar amb precaució",
+        "Aturar completament el vehicle",
+        "Accelerar per evitar bloquejar el trànsit",
+        "Cedir el pas només si ve un altre vehicle"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8yv-SzNKhoHTKaZzgWVLMToOt0tkzBLjsxQ&s"
+    },
+    {
+      "id": 13,
+      "pregunta": "Quan és obligatori portar el cinturó de seguretat?",
+      "respostes": [
+        "Només en autopistes",
+        "Només en carreteres fora de ciutat",
+        "En tot moment",
+        "Només el conductor"
+      ],
+      "resposta_correcta": 2,
+      "imatge": "https://rentingfinders.com/wp-content/uploads/2020/09/historia-cinturon-seguridad-1024x683.jpg"
+    },
+    {
+      "id": 14,
+      "pregunta": "Què indica un senyal de cediu el pas?",
+      "respostes": [
+        "Aturar el vehicle completament",
+        "Reduir la velocitat però no aturar-se",
+        "Cedir el pas als vehicles en la intersecció",
+        "Està permès avançar"
+      ],
+      "resposta_correcta": 2,
+      "imatge": "https://images.prismic.io/obikares/0208f3d8-8301-4f1c-bea3-ce0f0acfe975_senal-ceda-el-paso.jpg?auto=compress,format&rect=0,366,3504,1970&w=980&h=551"
+    },
+    {
+      "id": 15,
+      "pregunta": "Què has de fer si el teu vehicle comença a relliscar en una carretera mullada?",
+      "respostes": [
+        "Girar ràpidament el volant en la direcció oposada",
+        "Prem el fre de cop",
+        "Reduir la velocitat sense frenar bruscament",
+        "Accelerar per recuperar el control"
+      ],
+      "resposta_correcta": 2,
+      "imatge": "https://www.rodi.es/blog/wp-content/uploads/2016/10/conducir-carretera-mojada.jpg"
+    },
+    {
+      "id": 16,
+      "pregunta": "Quina és la primera acció en cas d'accident amb ferits?",
+      "respostes": [
+        "Retirar els vehicles de la carretera",
+        "Donar avís a emergències",
+        "Donar primers auxilis",
+        "Esperar que arribin els serveis d'emergència"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://image.ondacero.es/clipping/cmsimages01/2022/08/06/A72AB316-4E24-448D-BE6E-5026B13977D7/98.jpg?crop=1198,674,x2,y0&width=1900&height=1069&optimize=high&format=webply"
+    },
+    {
+      "id": 17,
+      "pregunta": "Què significa un senyal rodó blau amb una fletxa cap a la dreta?",
+      "respostes": [
+        "Prohibició de girar a la dreta",
+        "Obligació de girar a la dreta",
+        "Carril exclusiu per a gir a la dreta",
+        "Via preferent per a bicicletes"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://www.comercturro.com/tiendaonline/documentos/productos/se%C3%B1al-giro-sentido-obligatorio-derecha.jpg"
+    },
+    {
+      "id": 18,
+      "pregunta": "Quan es poden utilitzar els llums antiboira posteriors?",
+      "respostes": [
+        "Només en condicions de baixa visibilitat",
+        "Sempre que sigui de nit",
+        "En zones urbanes",
+        "Quan condueixes per una carretera solitària"
+      ],
+      "resposta_correcta": 0,
+      "imatge": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNFa37a4t3hDBfMQxtbY6YkUWclXUn-OZebQ&s"
+    },
+    {
+      "id": 19,
+      "pregunta": "Què indica una línia discontínua en la carretera?",
+      "respostes": [
+        "Prohibit avançar",
+        "És una zona d'aparcament",
+        "Està permès avançar",
+        "Carril reservat"
+      ],
+      "resposta_correcta": 2,
+      "imatge": "https://motor.elpais.com/wp-content/uploads/2023/07/lineas-discontinuas-seguridad-vial-4.jpg"
+    },
+    {
+      "id": 20,
+      "pregunta": "Qué significa un senyal rectangular de color blau amb una lletra P?",
+      "respostes": [
+        "Zona de descans",
+        "Zona d'aparcament",
+        "Prohibició d'estacionar",
+        "Zona de càrrega i descàrrega"
+      ],
+      "resposta_correcta": 1,
+      "imatge": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPu_RY3AOeWDYyu81cZUXKAPWULGbX3kbhYg&s"
+    }
+  ]
+}
