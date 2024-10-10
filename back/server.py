@@ -7,6 +7,7 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
+
 def mostrar_estadisticas():
     try:
         # Obtén la ruta absoluta del archivo
@@ -39,19 +40,28 @@ def mostrar_estadisticas():
         return
 
     x = np.arange(len(df))
-    width = 0.4
+    width = 0.35  # Ajustar el ancho de las barras
 
-    fig, ax = plt.subplots()
-    rects1 = ax.bar(x - width / 2, df['correctas'], width, label='Correctas', color='green')
-    rects2 = ax.bar(x + width / 2, df['incorrectas'], width, label='Incorrectas', color='red')
+    # Crear la figura y el eje
+    fig, ax = plt.subplots(figsize=(10, 6))  # Tamaño de la figura
 
-    ax.set_xlabel('Preguntas')
-    ax.set_ylabel('Cantidad')
-    ax.set_title('Estadísticas de las preguntas')
+    # Crear las barras
+    rects1 = ax.bar(x - width / 2, df['correctas'], width, label='Correctas', color='#4CAF50', edgecolor='black')  # Verde
+    rects2 = ax.bar(x + width / 2, df['incorrectas'], width, label='Incorrectas', color='#F44336', edgecolor='black')  # Rojo
+
+    # Mejorar el diseño
+    ax.set_xlabel('Preguntas', fontsize=14)
+    ax.set_ylabel('Veces Respondidas', fontsize=14)  
+    ax.set_title('Estadísticas de las Preguntas', fontsize=16, fontweight='bold')
     ax.set_xticks(x)
-    ax.set_xticklabels(df.index)
+    ax.set_xticklabels(df.index, rotation=45, ha='right')  
+    ax.legend(fontsize=12)
 
-    ax.legend()
+    ax.yaxis.set_major_locator(plt.MaxNLocator(integer=True))
+
+    ax.yaxis.grid(True, linestyle='--', alpha=0.7)  
+
+    plt.tight_layout()
 
     plt.show()
 

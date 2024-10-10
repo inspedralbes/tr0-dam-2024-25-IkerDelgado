@@ -4,7 +4,7 @@ const path = require('path');  // Importar el módulo 'path' para manejar rutas
 const cors = require('cors');  // Importar cors
 
 const app = express();
-const PORT = 3000;
+const PORT = 29876;
 
 // Middleware
 app.use(cors());  // Habilitar CORS para todas las rutas
@@ -168,5 +168,5 @@ app.get('/api/estadisticas', function(req, res) {
     });
 });
 app.listen(PORT, function() {
-    console.log('Servidor corriendo en http://192.168.0.160:' + PORT);
+    console.log('Servidor corriendo en http://a23ikedelgra.dam.inspedralbes.cat:' + PORT);
 }); 

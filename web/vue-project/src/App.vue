@@ -84,37 +84,37 @@ export default {
   methods: {
     async getPreguntes() {
       try {
-        const response = await fetch('http://localhost:3000/api/preguntes');
+        const response = await fetch('http://a23ikedelgra.dam.inspedralbes.cat:29876/api/preguntes');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         this.preguntes = data;
-        this.maxRespostes = data.length > 0 ? data[0].respostes.length - 1 : 0; // Definir el maxRespostes
+        this.maxRespostes = data.length > 0 ? data[0].respostes.length - 1 : 0; 
       } catch (error) {
         console.error('Error al obtener las preguntas:', error);
-        alert('No es va poder carregar les preguntes.'); // Mensaje de error al usuario
+        alert('No es va poder carregar les preguntes.');
       }
     },
     async deletePregunta(id) {
       try {
-        const response = await fetch(`http://localhost:3000/api/preguntes/${id}`, {
+        const response = await fetch(`http://a23ikedelgra.dam.inspedralbes.cat:29876/api/preguntes/${id}`, {
           method: 'DELETE'
         });
         if (!response.ok) throw new Error('Network response was not ok');
-        this.getPreguntes(); // Recarga la lista después de eliminar
+        this.getPreguntes();
       } catch (error) {
         console.error('Error al eliminar la pregunta:', error);
-        alert('No es va poder eliminar la pregunta.'); // Mensaje de error al usuario
+        alert('No es va poder eliminar la pregunta.'); 
       }
     },
     async obtenerMensaje() {
       try {
-        const response = await fetch('http://localhost:3000/api/hola');  // Ajusta la URL según tu servidor
+        const response = await fetch('http://a23ikedelgra.dam.inspedralbes.cat:29876/api/estadisticas');  
         if (!response.ok) {
           throw new Error('Error al obtener el mensaje');
         }
       } catch (error) {
         console.error('Error al hacer fetch:', error);
-        alert('Hubo un problema al obtener el mensaje');  // Muestra un alert si hay un error
+        alert('Hubo un problema al obtener el mensaje'); 
       }
     },
     editPregunta(pregunta) {
@@ -128,8 +128,8 @@ export default {
       try {
         const method = this.isEditing ? 'PUT' : 'POST';
         const url = this.isEditing 
-          ? `http://localhost:3000/api/preguntes/${this.editPreguntaId}` 
-          : 'http://localhost:3000/api/preguntes';
+          ? `http://a23ikedelgra.dam.inspedralbes.cat:29876/api/preguntes/${this.editPreguntaId}` 
+          : 'http://a23ikedelgra.dam.inspedralbes.cat:29876/api/preguntes';
         
         const response = await fetch(url, {
           method: method,
@@ -145,7 +145,7 @@ export default {
         this.resetForm();
       } catch (error) {
         console.error('Error al guardar la pregunta:', error);
-        alert('No es va poder guardar la pregunta.'); // Mensaje de error al usuario
+        alert('No es va poder guardar la pregunta.');
       }
     },
     cancelEdit() {
